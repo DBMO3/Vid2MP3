@@ -26,7 +26,7 @@ Vid2MP3 is a mini project that originated from my passion for Java programming a
 
 ## GitHub Repository
 
-If you're interested in exploring the inner workings of Vid2MP3 or even contributing to its development, you'll be glad to know that the complete source code is available on my GitHub repository: [Vid2MP3 GitHub Repository](https://github.com/DBMO3/Vid2MPE)
+If you're interested in exploring the inner workings of Vid2MP3 or even contributing to its development, you'll be glad to know that the complete source code is available on my GitHub repository: [Vid2MP3 GitHub Repository](https://github.com/DBMO3/Vid2MP3)
 
 ## Feedback and Contact
 
