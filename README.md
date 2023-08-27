@@ -30,7 +30,7 @@ If you're interested in exploring the inner workings of Vid2MP3 or even contribu
 
 ## Feedback and Contact
 
-I'm excited to hear your feedback, suggestions, and experiences with Vid2MP3. Feel free to reach out to me via [email@example.com](mailto:dylanbernal360@gmail.com) Your input will help shape the future of this mini project!
+I'm excited to hear your feedback, suggestions, and experiences with Vid2MP3. Feel free to reach out to me via [dylanbernal360@gmail.com](mailto:email@example.com) Your input will help shape the future of this mini project!
 
 Thank you for choosing Vid2MP3 and joining me on this programming and music adventure!
 
