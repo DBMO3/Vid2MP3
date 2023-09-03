@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.File;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,6 +28,7 @@ public class GUI extends javax.swing.JFrame {
     // Create GUI
     public GUI() {
         initComponents();
+        setIconImage(new ImageIcon(GUI.class.getResource("/resources/icon.png")).getImage());
     }
     
     
