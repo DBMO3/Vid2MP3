@@ -2,8 +2,8 @@
 package Vid2MP3;
 
 // Libraries
+import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Desktop;
-import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,11 +11,16 @@ import java.io.File;
 import javax.swing.JOptionPane;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /*Author DBMO3*/
 public class GUI extends javax.swing.JFrame {
+    
     private boolean warningMessage = false;
     
     // Create GUI
@@ -148,10 +153,13 @@ public class GUI extends javax.swing.JFrame {
                 + "2. Pulsa el boton Convert.\n"
                 + "3. Disfruta :3.\n", "Vid2MP3", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem_HelpActionPerformed
-    private boolean isValidURL(String url) {
-        String regex = "^(https?|ftp)://[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-.,@?^=%&:/~+#]*[\\w\\-@?^=%&/~+#])?$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(url);
+    private static final String YOUTUBE_URL_PATTERN =
+        "^(https?://)?(www\\.)?youtube\\.com/watch\\?v=.*";
+
+    private static final Pattern youtubePattern = Pattern.compile(YOUTUBE_URL_PATTERN);
+
+    public static boolean validateYouTubeURL(String url) {
+        Matcher matcher = youtubePattern.matcher(url);
         return matcher.matches();
     }
     private void jButton_ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConvertActionPerformed
@@ -160,10 +168,7 @@ public class GUI extends javax.swing.JFrame {
         String url = jTextField_URL.getText();
         
         // Catch error if var url is empty
-        if(!isValidURL(url)){
-            JOptionPane.showMessageDialog(null, "Input a URL from YouTube", "Invalid URL", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if(validateYouTubeURL(url)){
         
         // rojectPath & exe folder
         String projectPath = System.getProperty("user.dir");
@@ -224,10 +229,11 @@ public class GUI extends javax.swing.JFrame {
             }
             
         } else {
-            JOptionPane.showMessageDialog(null, "Error converting to mp3, verify your internet connectivity", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error converting to mp3, verify your internet connectivity", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        }
-        catch(IOException | InterruptedException e){
+        } else {
+            JOptionPane.showMessageDialog(null, "Please, input a URL from YouTube", "Error", JOptionPane.ERROR_MESSAGE);
+        }} catch(IOException | InterruptedException e) {
             JOptionPane.showMessageDialog(null, "An unexpected error ocurred while converting video, please try again", "Unexpected error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton_ConvertActionPerformed
@@ -237,7 +243,7 @@ public class GUI extends javax.swing.JFrame {
         try{
             Desktop.getDesktop().browse(new URI("https://paypal.me/dbm360?country.x=MX&locale.x=es_XC"));
         } catch(URISyntaxException | IOException e) {
-            // Catch some error
+            // Catch error
             JOptionPane.showMessageDialog(null, "Error to open website", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jMenuItem_DonateActionPerformed
@@ -248,33 +254,17 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_AboutActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            /* Set the look and feel */
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(() -> {
+                new GUI().setVisible(true);
+            });
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new GUI().setVisible(true);
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -287,5 +277,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_Help;
     private javax.swing.JTextField jTextField_URL;
     // End of variables declaration//GEN-END:variables
+
+    private boolean isValidURL(String url) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
