@@ -39,7 +39,8 @@ Thank you for choosing Vid2MP3 and joining me on this programming and music adve
 ## Changelog
 
 - Fix GUI
+- Add URL Validator
 
 ## Download
 
-[Download Vid2MP3](https://www.mediafire.com/file/818jovmzr5rnh0g/Vid2MP3.rar/file)
+[Download Vid2MP3](https://www.mediafire.com/file/s3xvadcly4q718u/Vid2MP3.rar/file)
