@@ -1,4 +1,4 @@
-# Vid2MP3
+# Vid2MP3 v1.0
 
 Welcome to Vid2MP3, a simple yet powerful tool designed for converting YouTube videos into MP3 audio files. With Vid2MP3, you can enjoy your favorite songs in MP3 format anytime, anywhere. This documentation will guide you through the process of using Vid2MP3 effectively.
 
