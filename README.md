@@ -48,4 +48,4 @@ Thank you for choosing Vid2MP3 and joining me on this programming and music adve
 
 ## Download
 
-[Download Vid2MP3](https://www.mediafire.com/file/f6y5h5ujotqrr51/Vid2MP3.rar/file)
+[Download Vid2MP3](https://ouo.io/8chKYt)
